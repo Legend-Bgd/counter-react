@@ -6,13 +6,17 @@ function App() {
 
   const [counter, setCounter] = useState(32);
 
+  const setCounterWithValue = value => () => {
+    setCounter(counter + value)
+  }
+
   return (
     <div className="App">
       <h1>{counter}</h1>
       <div>
-        <button onClick={() => setCounter(counter - 1)}>-1</button>
-        <button onClick={() => setCounter(0)}>Reset</button>
-        <button onClick={() => setCounter(counter + 1)}>+1</button>
+        <button onClick={setCounterWithValue(-1)}>-1</button>
+        <button onClick={setCounterWithValue(-counter)}>Reset</button>
+        <button onClick={setCounterWithValue(+1)}>+1</button>
       </div>
     </div>
   );
